@@ -1,0 +1,45 @@
+<section id="explore">
+  <div>
+    <div>
+      <% unless signed_in? %>
+        <h3>Click to Sign In (we need a key to invoke the APIs)</h3>
+        <p>
+          <a href="/sign_in">Sign in with OAuth 2 provider »</a>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <div>
+      <% if signed_in? %>
+        <h2>Explore the API (click a link to see json response)</h2>
+
+        <div>
+          <a href="/explore/me.json" >Me.json</a>
+          <a href="/explore/liked.json">Likes</a>
+          <a href="/explore/tobedone.json">ToDo's</a>
+          <a href="/explore/next_events.json">Next Events</a>
+          &nbsp;
+          (OR
+          <a href="/sign_out">Sign out</a>)
+        </div>
+
+        <p>Your access token: <code><%= session[:access_token] %></code> (<a href="/refresh" title="<%= session[:refresh_token] %>">refresh</a>)</p>
+
+        <p><pre id="display-json">Select one of the api methods above</pre></p>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3> Usage </h3>
+  <div>
+    <div style="white-space: pre">
+<%= File.read('README.md') %>
+    </div>
+  </div>
+</section>

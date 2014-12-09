@@ -1,0 +1,23 @@
+<h1>
+  Oh no something went wrong :(
+  <code><%= @error.class %></code>
+</h1>
+
+<h2>
+Tried to access: <%= @url %> but got <pre> <%= h @error.response.status %> </pre>
+</h2>
+
+Headers:
+<pre>
+<%= h @error.response.headers %>
+</pre>
+
+Body:
+<pre>
+<%= h @error.response.body %>
+</pre>
+
+Full response:
+<pre>
+<%= h @error.response.inspect %>
+</pre>
